@@ -8,29 +8,21 @@
 
 	$meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iunius", "Iulius", "Augustus", "September", "Octuber", "November", "December");
 ?>
-
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-	<title>Intento de Calendario</title>
-
+	<title>Intento de Calendario</title
 	<meta charset="utf-8">
-
 	<style>
 		body{
 			background: url('Wllp_mag.jpg');
 		}
-
 		h1{
 			text-align: center;
 			-webkit-text-stroke: 1px black;
 			color:pink;
 		}
-		#calendario{
-			
+		#calendario{	
 			font-family:Times;
 			font-size:20px;
 		}
@@ -47,7 +39,6 @@
 			width: 50px;
 			border: 2px solid black;
 		}
-
 		#calendario td{
 			text-align: center;
 			background-color: pink;
@@ -68,14 +59,12 @@
 			50% {opacity: 0.0;}
 			100% {opacity: 1.0;}
 		}
-
 		table{
 			margin: 0 auto;
 			width: 75%;
 		}
 	</style>
 </head>
-
 <body>
 <h1> . : Calendario : . </h1>
 <table id="calendario">
@@ -86,31 +75,24 @@
 	</tr>
 	<tr>
 		<?php
-
 		$ultima_celda=$diasemana+$ultimodiames;
 
 			for($i=1;$i<=35;$i++){
-
 				if($i==$diasemana){
 					$hoy=1;
 				}
-
 				if($i<$diasemana || $i>=$ultima_celda){
 					echo "<td></td>";
 				}
-
 				else{
 					if($hoy==$dia){
 						echo "<td class='hoy'>$hoy</td>";
-					}
-					
+					}	
 					else{
 						echo "<td>$hoy</td>";
 					}
-					
 					$hoy++;
 				}
-
 				if($i%7==0){
 					echo "</tr><tr>\n";
 				}
