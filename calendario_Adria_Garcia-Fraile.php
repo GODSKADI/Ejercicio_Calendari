@@ -1,3 +1,16 @@
+<?php
+
+$mes=date("n");
+$año=date("Y");
+$dia=date("j");
+
+$diasemana=date("w",mktime(0,0,0,$mes,1,$año));
+$ultimodiames=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
+
+$meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iunius", "Iulius", "Augustus", "September", "Octuber", "November", "December");
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -44,6 +57,7 @@
 			margin: 0 auto;
 			width: 50%;
 		}
+	</style>
 </head>
 
 <body>
@@ -51,10 +65,10 @@
 <table id="calendario">
 	<caption><?php echo $meses[$mes]." ".$año ?></caption>
 	<tr>
-		<th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th>
-		<th>Fri</th><th>Sat</th><th>Sun</th>
+		<th>Lunae</th><th>martis</th><th>Mercurii</th><th>Iovis</th>
+		<th>Veneris</th><th>Saturni</th><th>Dominica</th>
 	</tr>
-	<tr>
-		
-	</tr>
+	
 </table>
+</body>
+</html>
