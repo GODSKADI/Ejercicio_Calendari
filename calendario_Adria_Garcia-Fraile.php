@@ -20,9 +20,14 @@
 	<meta charset="utf-8">
 
 	<style>
-		
+		body{
+			background: url('Wllp_mag.jpg');
+		}
+
 		h1{
 			text-align: center;
+			-webkit-text-stroke: 1px black;
+			color:pink;
 		}
 		#calendario{
 			
@@ -40,18 +45,20 @@
 			background-color: magenta;
 			color: black;
 			width: 50px;
+			border: 2px solid black;
 		}
 
 		#calendario td{
 			text-align: center;
 			background-color: pink;
+			border: 1px solid black;
 		}
 		#calendario .hoy{
 			background-color: black;
 			color:magenta;
 			font-weight: bold;
 			border: 5px solid magenta;
-
+			-webkit-text-stroke: 1px pink;
 			animation-name: parpadeo;
 			animation-duration: 1s;
 			animation-iteration-count: infinite; 
@@ -70,7 +77,7 @@
 </head>
 
 <body>
-<h1>Intento de Calendario</h1>
+<h1> . : Calendario : . </h1>
 <table id="calendario">
 	<caption><?php echo $meses[$mes]." ".$año ?></caption>
 	<tr>
