@@ -1,14 +1,12 @@
 <?php
+	$mes=date("n");
+	$año=date("Y");
+	$dia=date("j");
 
-$mes=date("n");
-$año=date("Y");
-$dia=date("j");
+	$diasemana=date("w",mktime(0,0,0,$mes,1,$año));
+	$ultimodiames=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
 
-$diasemana=date("w",mktime(0,0,0,$mes,1,$año));
-$ultimodiames=date("d",(mktime(0,0,0,$mes+1,1,$año)-1));
-
-$meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iunius", "Iulius", "Augustus", "September", "Octuber", "November", "December");
-
+	$meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iunius", "Iulius", "Augustus", "September", "Octuber", "November", "December");
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +15,12 @@ $meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iuniu
 
 <head>
 
-
 	<title>Intento de Calendario</title>
 
 	<meta charset="utf-8">
 
 	<style>
+		
 		h1{
 			text-align: center;
 		}
@@ -52,10 +50,21 @@ $meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iuniu
 			background-color: black;
 			color:magenta;
 			font-weight: bold;
+			border: 5px solid magenta;
+
+			animation-name: parpadeo;
+			animation-duration: 1s;
+			animation-iteration-count: infinite; 
 		}
+		@keyframes parpadeo{
+			0% {opacity: 1.0;}
+			50% {opacity: 0.0;}
+			100% {opacity: 1.0;}
+		}
+
 		table{
 			margin: 0 auto;
-			width: 50%;
+			width: 75%;
 		}
 	</style>
 </head>
@@ -68,7 +77,39 @@ $meses=array(1=>"Ianuarius", "Februarius", "Martius", "Aprilis", "Maius", "Iuniu
 		<th>Lunae</th><th>martis</th><th>Mercurii</th><th>Iovis</th>
 		<th>Veneris</th><th>Saturni</th><th>Dominica</th>
 	</tr>
-	
+	<tr>
+		<?php
+
+		$ultima_celda=$diasemana+$ultimodiames;
+
+			for($i=1;$i<=35;$i++){
+
+				if($i==$diasemana){
+					$hoy=1;
+				}
+
+				if($i<$diasemana || $i>=$ultima_celda){
+					echo "<td></td>";
+				}
+
+				else{
+					if($hoy==$dia){
+						echo "<td class='hoy'>$hoy</td>";
+					}
+					
+					else{
+						echo "<td>$hoy</td>";
+					}
+					
+					$hoy++;
+				}
+
+				if($i%7==0){
+					echo "</tr><tr>\n";
+				}
+			}
+		?>
+	</tr>
 </table>
 </body>
 </html>
